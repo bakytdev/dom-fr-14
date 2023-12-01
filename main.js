@@ -111,38 +111,93 @@ modalClose.addEventListener('click', () => {
 // modalBtn.classList.remove('modal-window')
 // modalBtn.classList.replace('btnAdd', 'btnReplace')
 // modalBtn.classList.toggle('btnToggle')
+//
+// const btnOne = document.querySelector('.modal-btn-one'),
+//     btnTwo = document.querySelector('.modal-btn-two'),
+//     btnThree = document.querySelector('.modal-btn-three'),
+//     img = document.querySelector('.modal-img');
+//
+//
+// btnOne.addEventListener('click', () => {
+//     img.classList.add('modal-img')
+//     img.classList.remove('modal-img-two')
+//     img.classList.remove('modal-img-three')
+//     btnOne.style.background = "#04CE25"
+//     btnTwo.style.background = '#D9D9D9'
+//     btnThree.style.background = '#D9D9D9'
+// })
 
-const btnOne = document.querySelector('.modal-btn-one'),
-    btnTwo = document.querySelector('.modal-btn-two'),
-    btnThree = document.querySelector('.modal-btn-three'),
-    img = document.querySelector('.modal-img');
+//
+// btnTwo.addEventListener('click', () => {
+//     img.classList.add('modal-img-two')
+//     img.classList.remove('modal-img')
+//     img.classList.remove('modal-img-three')
+//     btnOne.style.background = "#D9D9D9"
+//     btnTwo.style.background = "#04CE25"
+//     btnThree.style.background = "#D9D9D9"
+// })
+//
+// btnThree.addEventListener('click', () => {
+//     img.classList.add('modal-img-three')
+//     img.classList.remove('modal-img')
+//     img.classList.remove('modal-img-two')
+//     btnOne.style.background = "#D9D9D9"
+//     btnThree.style.background = "#04CE25"
+//     btnTwo.style.background = "#D9D9D9"
+// })
 
 
-btnOne.addEventListener('click', () => {
-    img.classList.add('modal-img')
-    img.classList.remove('modal-img-two')
-    img.classList.remove('modal-img-three')
-    btnOne.style.background = "#04CE25"
-    btnTwo.style.background = '#D9D9D9'
-    btnThree.style.background = '#D9D9D9'
+///
+
+const inputName = document.querySelector('.input-name'),
+    inputLastName = document.querySelector('.input-lastName'),
+    inputPhone = document.querySelector('.input-phone'),
+    inputAge = document.querySelector('.input-age'),
+    inputJob = document.querySelector('.input-job'),
+    inputBtn = document.querySelector('.input-btn'),
+    titleName = document.querySelector('.title-name'),
+    titleLastName = document.querySelector('.title-lastname'),
+    titlePhone = document.querySelector('.title-phone'),
+    titleAge = document.querySelector('.title-age'),
+    titleJob = document.querySelector('.title-job'),
+    titleError = document.querySelector('.title-error');
+
+let allInput = document.querySelectorAll(".modal input")
+
+inputBtn.addEventListener('click', () => {
+    if (inputName.value === '' || inputLastName.value === '' || inputPhone.value === '' || inputAge.value === '' || inputJob.value === '') {
+        titleError.style.opacity = '1'
+        inputName.placeholder = "error"
+        inputLastName.placeholder = "error"
+        inputPhone.placeholder = "error"
+        inputAge.placeholder = "error"
+        inputJob.placeholder = "error"
+        allInput.forEach(el => el.classList.add('placeholder'))
+    } else {
+        titleName.textContent += inputName.value
+        titleLastName.textContent += inputLastName.value
+        titlePhone.textContent += inputPhone.value
+        titleAge.textContent += inputAge.value
+        titleJob.textContent += inputJob.value
+
+        inputName.placeholder = "Name..."
+        inputLastName.placeholder = "Last Name..."
+        inputPhone.placeholder = "Phone..."
+        inputAge.placeholder = "Age..."
+        inputJob.placeholder = "Job..."
+
+        allInput.forEach(el => el.classList.remove('placeholder'))
+
+        inputName.value = ''
+        inputLastName.value = ''
+        inputPhone.value = ''
+        inputAge.value = ''
+        inputJob.value = ''
+        titleError.style.opacity = '0'
+    }
 })
 
 
-btnTwo.addEventListener('click', () => {
-    img.classList.add('modal-img-two')
-    img.classList.remove('modal-img')
-    img.classList.remove('modal-img-three')
-    btnOne.style.background = "#D9D9D9"
-    btnTwo.style.background = "#04CE25"
-    btnThree.style.background = "#D9D9D9"
-})
 
-btnThree.addEventListener('click', () => {
-    img.classList.add('modal-img-three')
-    img.classList.remove('modal-img')
-    img.classList.remove('modal-img-two')
-    btnOne.style.background = "#D9D9D9"
-    btnThree.style.background = "#04CE25"
-    btnTwo.style.background = "#D9D9D9"
-})
+
 
